@@ -2,6 +2,28 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { Client, Collection, GatewayIntentBits, Events } = require('discord.js');
+const express = require('express');
+
+// Create express app for health checks (keeps Render awake)
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+    res.json({ 
+        status: 'online',
+        bot: 'Promotibot',
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString()
+    });
+});
+
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
+
+app.listen(PORT, () => {
+    console.log(`[SERVER] Health check server running on port ${PORT}`);
+});
 
 // Create a new client instance
 const client = new Client({
