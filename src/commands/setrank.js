@@ -57,7 +57,7 @@ module.exports = {
                         await member.roles.remove(oldRole);
                     }
                 }
-                
+
                 // Add new rank role
                 if (result.newRoleId) {
                     const newRole = guild.roles.cache.get(result.newRoleId);

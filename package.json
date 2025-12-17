@@ -6,7 +6,12 @@
   "scripts": {
     "start": "node src/index.js",
     "deploy": "node src/deploy-commands.js",
-    "dev": "node src/deploy-commands.js && node src/index.js"
+    "dev": "node src/deploy-commands.js && node src/index.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop promotibot",
+    "pm2:restart": "pm2 restart promotibot",
+    "pm2:logs": "pm2 logs promotibot",
+    "pm2:status": "pm2 status"
   },
   "repository": {
     "type": "git",

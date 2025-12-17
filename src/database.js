@@ -355,8 +355,8 @@ function removeUser(guildId, userId) {
 
     delete users[guildId][userId];
     saveData(usersFile, users);
-    return { 
-        success: true, 
+    return {
+        success: true,
         message: `${username} has been removed from the ranking system.`,
         removedRoleId: rankData ? rankData.roleId : null
     };
